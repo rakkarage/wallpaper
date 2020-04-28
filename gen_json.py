@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import os
+from github import Github
+import json
+
+with open(os.getenv('HOME') + '/.git-token-gen-json') as f:
+    token = f.readline()
+    f.close()
+
+token = token.rstrip("\n")
+
+# or using an access token
+g = Github(token)
+repo = g.get_repo("rakkarage/wallpaper")
+contents = repo.get_contents("images")
+
+images = []
+
+for content_file in contents:
+    image = {}
+    image["url"] = content_file.download_url
+    images.append(image)
+
+print(json.dumps(images, indent=2))
