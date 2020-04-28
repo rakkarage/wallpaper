@@ -1,17 +1,11 @@
 #!/usr/bin/env python3
 
-import os
-from github import Github
 import json
+import os
 
-with open(os.getenv('HOME') + '/.git-token-gen-json') as f:
-    token = f.readline()
-    f.close()
+from github import Github
 
-token = token.rstrip("\n")
-
-# or using an access token
-g = Github(token)
+g = Github()
 repo = g.get_repo("rakkarage/wallpaper")
 contents = repo.get_contents("images")
 
