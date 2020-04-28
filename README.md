@@ -1,6 +1,6 @@
 # wallpaper
 
-wallpaper source for gnome random wallpaper extension. thanks: <https://github.com/matjam/hd-wallpapers>
+wallpaper. thanks: <https://github.com/matjam/hd-wallpapers>
 
 ## Using with RandomWallpaperGnome3
 
