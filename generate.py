@@ -12,7 +12,10 @@ contents = repo.get_contents("images")
 images = []
 
 for content_file in contents:
-    image = {}
+    if content_file.type == "dir":
+        contents.extend(repo.get_contents(content_file.path))
+    else:
+        image = {}
     image["url"] = content_file.download_url
     images.append(image)
 
